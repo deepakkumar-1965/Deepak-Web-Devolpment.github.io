@@ -1,0 +1,12 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Store a JavaScript object in localStorage.</title><style>*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f4f7fb;color:#172033}
+header{background:linear-gradient(135deg,#173b70,#2563a6);color:white;padding:25px}
+nav{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}nav a,.btn,button{background:#2563a6;color:white;padding:9px 14px;border:0;border-radius:8px;text-decoration:none;cursor:pointer}
+header nav a{background:#ffffff22}main{max-width:1050px;margin:25px auto;padding:0 16px}.card{background:white;padding:22px;border-radius:14px;margin-bottom:18px;box-shadow:0 5px 18px #0001}
+.demo{background:#f8fafc;border:1px dashed #94a3b8;padding:18px;border-radius:10px;margin-top:15px}
+input,select,textarea{padding:10px;border:1px solid #cbd5e1;border-radius:7px;margin:5px;max-width:100%}
+table{border-collapse:collapse;width:100%}th,td{border:1px solid #cbd5e1;padding:9px}th{background:#eaf2fb}.output{margin-top:10px;font-weight:bold;color:#173b70}
+.list a{display:block;background:white;border:1px solid #e2e8f0;padding:12px;margin:7px 0;border-radius:9px;text-decoration:none;color:#173b70}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}footer{text-align:center;padding:25px;color:#64748b}</style></head>
+<body><header><h1>Store a JavaScript object in localStorage.</h1><p>HTML, CSS & JavaScript Practical Programs</p><nav><a href="../../index.html">Home</a><a href="index.html">Back to Programs</a></nav></header>
+<main><section class="card"><h2>Program 8</h2><p>Store a JavaScript object in localStorage.</p><div class="demo"><input id="x" placeholder="Username"><button onclick="localStorage.setItem('username',x.value);out.textContent='Saved'">Save</button><button onclick="out.textContent=localStorage.getItem('username')||'No data'">Read</button><button onclick="localStorage.removeItem('username');out.textContent='Deleted'">Delete</button><p id="out" class="output"></p></div></section>
+<section class="card"><h3>Working Demonstration</h3><p>This practical is a separate HTML file and can be opened directly in a browser.</p></section></main><footer>Practical Programs Project</footer></body></html>
