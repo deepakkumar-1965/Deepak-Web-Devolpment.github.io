@@ -1,0 +1,618 @@
+\```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>B.Deepak Kumar Reddy - Practical Programs</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #eef2ff, #fdf2f8, #ecfeff);
+            color: #1e293b;
+        }
+
+        /* HEADER */
+
+        header {
+            background: linear-gradient(135deg, #4f46e5, #7c3aed, #db2777);
+            color: white;
+            padding: 20px 8%;
+            box-shadow: 0 5px 20px #0002;
+        }
+
+        header h2 {
+            font-size: 24px;
+        }
+
+        nav {
+            margin-top: 12px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            background: #ffffff25;
+            padding: 9px 15px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background: white;
+            color: #4f46e5;
+        }
+
+        /* HERO */
+
+        .hero {
+            text-align: center;
+            padding: 65px 20px;
+            background:
+                radial-gradient(circle at top left, #f9a8d4, transparent 35%),
+                radial-gradient(circle at bottom right, #93c5fd, transparent 35%),
+                linear-gradient(135deg, #312e81, #7e22ce);
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .hero h2 {
+            font-size: 28px;
+            color: #fde68a;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+        }
+
+        /* MAIN */
+
+        main {
+            max-width: 1150px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        /* STUDENT DETAILS */
+
+        .student {
+            background: white;
+            padding: 28px;
+            border-radius: 20px;
+            margin-bottom: 28px;
+            box-shadow: 0 8px 25px #0002;
+            border-left: 7px solid #7c3aed;
+        }
+
+        .student h2 {
+            color: #6d28d9;
+            margin-bottom: 20px;
+            font-size: 26px;
+        }
+
+        .student-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .student-box {
+            padding: 17px;
+            border-radius: 13px;
+            background: linear-gradient(135deg, #eef2ff, #fce7f3);
+            border: 1px solid #e0e7ff;
+        }
+
+        .student-box strong {
+            display: block;
+            color: #6d28d9;
+            margin-bottom: 7px;
+        }
+
+        /* PROGRAM CARDS */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            background: white;
+            padding: 28px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px #0002;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px #0003;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            height: 6px;
+            left: 0;
+            right: 0;
+            top: 0;
+        }
+
+        .html-card::before {
+            background: linear-gradient(90deg, #f97316, #ef4444);
+        }
+
+        .css-card::before {
+            background: linear-gradient(90deg, #2563eb, #06b6d4);
+        }
+
+        .js-card::before {
+            background: linear-gradient(90deg, #eab308, #f97316);
+        }
+
+        .icon {
+            font-size: 45px;
+            margin-bottom: 12px;
+        }
+
+        .card h2 {
+            margin-bottom: 10px;
+        }
+
+        .html-card h2 {
+            color: #ea580c;
+        }
+
+        .css-card h2 {
+            color: #2563eb;
+        }
+
+        .js-card h2 {
+            color: #ca8a04;
+        }
+
+        .card p {
+            line-height: 1.6;
+            color: #475569;
+        }
+
+        .count {
+            display: inline-block;
+            padding: 7px 13px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin: 15px 0 18px;
+            color: white;
+        }
+
+        .html-card .count {
+            background: #f97316;
+        }
+
+        .css-card .count {
+            background: #2563eb;
+        }
+
+        .js-card .count {
+            background: #ca8a04;
+        }
+
+        /* BUTTON */
+
+        .btn {
+            display: inline-block;
+            padding: 11px 18px;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .html-btn {
+            background: linear-gradient(135deg, #f97316, #ef4444);
+        }
+
+        .css-btn {
+            background: linear-gradient(135deg, #2563eb, #06b6d4);
+        }
+
+        .js-btn {
+            background: linear-gradient(135deg, #eab308, #f97316);
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+
+        /* JAVASCRIPT SECTION */
+
+        .section {
+            background: white;
+            margin-top: 30px;
+            padding: 28px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px #0001;
+        }
+
+        .section h2 {
+            color: #7c3aed;
+            margin-bottom: 8px;
+        }
+
+        .section p {
+            margin-bottom: 20px;
+            color: #64748b;
+        }
+
+        .js-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+        }
+
+        .js-box {
+            padding: 17px;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            border-radius: 12px;
+            font-weight: bold;
+            line-height: 1.7;
+            transition: 0.3s;
+        }
+
+        .js-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 18px #0002;
+        }
+
+        .mini {
+            background: linear-gradient(135deg, #ec4899, #db2777);
+        }
+
+        .dom {
+            background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+        }
+
+        .events {
+            background: linear-gradient(135deg, #06b6d4, #0284c7);
+        }
+
+        .forms {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+
+        .browser {
+            background: linear-gradient(135deg, #f97316, #ea580c);
+        }
+
+        .storage {
+            background: linear-gradient(135deg, #eab308, #ca8a04);
+        }
+
+        /* TOTAL */
+
+        .total {
+            margin-top: 25px;
+            text-align: center;
+            padding: 20px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #312e81, #7c3aed, #db2777);
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* FOOTER */
+
+        footer {
+            margin-top: 40px;
+            padding: 25px;
+            text-align: center;
+            color: white;
+            background: #1e1b4b;
+        }
+
+        footer strong {
+            color: #f9a8d4;
+        }
+
+        /* MOBILE */
+
+        @media(max-width:600px) {
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .hero h2 {
+                font-size: 22px;
+            }
+
+            header {
+                padding: 18px;
+            }
+
+            main {
+                padding: 0 12px;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+    <h2>🎓 Practical Programs Portal</h2>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="html/index.html">HTML</a>
+        <a href="css/index.html">CSS</a>
+        <a href="javascript/index.html">JavaScript</a>
+    </nav>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <h1>HTML • CSS • JAVASCRIPT</h1>
+
+    <h2>Practical Programs</h2>
+
+    <p>
+        Complete Web Development Practical Programs Dashboard
+    </p>
+
+</section>
+
+
+<main>
+
+    <!-- STUDENT DETAILS -->
+
+    <section class="student">
+
+        <h2>👨‍🎓 Student Details</h2>
+
+        <div class="student-grid">
+
+            <div class="student-box">
+                <strong>Student Name</strong>
+                B.Deepak Kumar Reddy
+            </div>
+
+            <div class="student-box">
+                <strong>Register Number</strong>
+                250200537
+            </div>
+
+            <div class="student-box">
+                <strong>Section</strong>
+                Section - 7
+            </div>
+
+            <div class="student-box">
+                <strong>Year</strong>
+                B.Tech 2nd Year
+            </div>
+
+            <div class="student-box">
+                <strong>Subject</strong>
+                HTML, CSS & JavaScript
+            </div>
+
+            <div class="student-box">
+                <strong>Academic Year</strong>
+                2026
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROGRAM CARDS -->
+
+    <div class="cards">
+
+        <!-- HTML -->
+
+        <div class="card html-card">
+
+            <div class="icon">🌐</div>
+
+            <h2>HTML Programs</h2>
+
+            <p>
+                Learn HTML structure, headings, paragraphs,
+                links, images, tables, forms and other HTML elements.
+            </p>
+
+            <span class="count">15 Programs</span>
+
+            <br>
+
+            <a class="btn html-btn" href="html/index.html">
+                View HTML Programs →
+            </a>
+
+        </div>
+
+
+        <!-- CSS -->
+
+        <div class="card css-card">
+
+            <div class="icon">🎨</div>
+
+            <h2>CSS Programs</h2>
+
+            <p>
+                Practice colors, fonts, layouts, borders,
+                Flexbox, Grid, animations and responsive designs.
+            </p>
+
+            <span class="count">75 Programs</span>
+
+            <br>
+
+            <a class="btn css-btn" href="css/index.html">
+                View CSS Programs →
+            </a>
+
+        </div>
+
+
+        <!-- JAVASCRIPT -->
+
+        <div class="card js-card">
+
+            <div class="icon">⚡</div>
+
+            <h2>JavaScript Programs</h2>
+
+            <p>
+                Practice JavaScript basics, functions,
+                arrays, objects, conditions and programming concepts.
+            </p>
+
+            <span class="count">65 Core Programs</span>
+
+            <br>
+
+            <a class="btn js-btn" href="javascript/index.html">
+                View JavaScript Programs →
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- JAVASCRIPT SECTIONS -->
+
+    <section class="section">
+
+        <h2>⚡ JavaScript Practical Sections</h2>
+
+        <p>
+            Select a category to explore the JavaScript practical programs.
+        </p>
+
+        <div class="js-grid">
+
+            <a class="js-box mini"
+               href="javascript/mini-projects/index.html">
+                🚀<br>
+                Mini Projects
+                <br>
+                17 Programs
+            </a>
+
+            <a class="js-box dom"
+               href="javascript/dom/index.html">
+                🧩<br>
+                DOM
+                <br>
+                35 Programs
+            </a>
+
+            <a class="js-box events"
+               href="javascript/events/index.html">
+                🖱️<br>
+                Events
+                <br>
+                30 Programs
+            </a>
+
+            <a class="js-box forms"
+               href="javascript/forms/index.html">
+                📝<br>
+                Forms
+                <br>
+                40 Programs
+            </a>
+
+            <a class="js-box browser"
+               href="javascript/browser/index.html">
+                🌍<br>
+                Browser
+                <br>
+                20 Programs
+            </a>
+
+            <a class="js-box storage"
+               href="javascript/storage/index.html">
+                💾<br>
+                Storage
+                <br>
+                25 Programs
+            </a>
+
+        </div>
+
+
+        <div class="total">
+
+            📚 Total Separate Program Pages: 322
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        HTML • CSS • JavaScript Practical Submission
+    </p>
+
+    <p>
+        <strong>B.Deepak Kumar Reddy</strong> |
+        Reg. No. 250200537 |
+        Section - 7 |
+        B.Tech 2nd Year
+    </p>
+
+</footer>
+
+</body>
+</html>
+```
+
+This version now shows **B.Deepak Kumar Reddy, 250200537, Section-7, B.Tech 2nd Year** in both the student-details section and footer.
